@@ -5,12 +5,11 @@ import secrets
 def generate_password(length=12, include_letters=True, include_digits=True, include_symbols=True):
     characters = string.ascii_letters + string.digits + string.punctuation # Инициализация строки для хранения символов, из которых будет сгенерирован пароль
     if include_letters:
-        characters += string.ascii_letters + string.digits + string.punctuation
+        characters += string.ascii_letters
         if include_digits:
-            characters += string.ascii_letters + string.digits + string.punctuation
+            characters += string.digits
             if include_symbols:
-                characters += string.ascii_letters + string.digits + string.punctuation
-    characters += string.punctuation
+                characters += string.punctuation
     if not characters:
         raise ValueError("Не выбраны символы для генерации пароля.")
     # Генерация пароля путем случайного выбора символов из списка characters длиной length
